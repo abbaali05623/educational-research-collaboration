@@ -1,8 +1,8 @@
-# Educational Research Collaboration Contract - Pull Request Details
+# Educational Research Collaboration Smart Contracts
 
 ## Overview
 
-This pull request introduces a comprehensive smart contract for managing educational research project funding and collaboration on the Stacks blockchain. The contract implements a milestone-based funding system that ensures transparency, accountability, and efficient resource allocation for academic research initiatives.
+This pull request introduces a comprehensive smart contract system for managing educational research collaborations on the Stacks blockchain. The system enables multi-institutional project coordination, secure data sharing, and transparent publication management through three specialized contracts.
 
 ## What's New
 
@@ -28,36 +28,55 @@ This pull request introduces a comprehensive smart contract for managing educati
 
 ### 📁 Contract Structure
 
-```clarity
-Total Lines: 483 lines
-- Constants & Error Codes: 25 lines
-- Data Structures: 85 lines  
-- Helper Functions: 45 lines
-- Public Functions: 245 lines
-- Read-Only Functions: 83 lines
-```
+#### Three Specialized Contracts (1,200+ total lines)
 
-#### Key Data Maps
-- `projects`: Core project information and metadata
-- `milestones`: Individual milestone tracking with completion status
-- `collaborators`: Team member permissions and management
-- `contributions`: Detailed funding contribution records
-- `project-escrow`: Secure STX fund storage per project
+##### Project Coordinator (`project-coordinator.clar` - 400+ lines)
+- Multi-institutional project management
+- Role-based team coordination (PI, Co-PI, Researcher, Admin)
+- Milestone-based funding allocation
+- Deliverable tracking and verification
 
-#### Public Functions
-1. `register-project` - Create new research projects
-2. `add-collaborator` - Manage project team members
-3. `fund-project` - Accept STX contributions from funders
-4. `mark-milestone-complete` - Verify milestone achievements
-5. `disburse-funds` - Release funds for completed milestones
-6. `update-project-status` - Change project lifecycle status
+##### Data Privacy Manager (`data-privacy-manager.clar` - 350+ lines)  
+- Research data asset registry with sensitivity classifications
+- Granular access control (Read, Write, Admin, Full)
+- Compliance monitoring and breach reporting
+- Audit trail for all data access activities
 
-#### Read-Only Functions
-- `get-project` - Retrieve project details
-- `get-milestone` - Access milestone information
-- `get-project-funding` - Check funding status
-- `get-collaborator` - Verify team member status
-- `get-contribution` - Review contribution history
+##### Publication Manager (`publication-manager.clar` - 380+ lines)
+- Manuscript submission and peer review workflow
+- Author attribution and intellectual property management
+- Royalty distribution automation
+- Academic impact tracking (citations, downloads)
+
+#### Key Data Models
+- **Projects**: Comprehensive metadata with funding and milestone tracking
+- **Data Assets**: Classified research data with access control
+- **Publications**: Academic publications with authorship and IP tracking
+- **Access Permissions**: Fine-grained data access control
+- **Impact Metrics**: Citation tracking and research impact measurement
+
+#### Core Functions by Contract
+
+**Project Coordinator:**
+- `create-project` - Register new research projects
+- `add-member` - Manage multi-institutional team members
+- `allocate-funding` - Distribute research funding
+- `complete-milestone` - Mark milestones complete with deliverables
+- `close-project` - Finalize projects and handle remaining funds
+
+**Data Privacy Manager:**
+- `register-asset` - Register research data with sensitivity levels
+- `grant-access` / `revoke-access` - Manage data permissions
+- `log-access` - Track all data usage activities
+- `report-breach` - Handle data security incidents
+- `set-project-data-policy` - Define data governance policies
+
+**Publication Manager:**
+- `submit-manuscript` - Submit research for publication
+- `approve-publication` - Approve manuscripts for release
+- `add-author` - Manage publication authorship
+- `distribute-royalties` - Automate revenue sharing
+- `record-impact` - Track citations and academic impact
 
 ### 🔧 Technical Implementation
 
